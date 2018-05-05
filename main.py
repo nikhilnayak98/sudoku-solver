@@ -44,7 +44,8 @@ def parse_grid(grid):
 def grid_values(grid):
     # Convert grid into a dict of {square: char} with '0' or '.' for empties.
     chars = [c for c in grid if c in digits or c in '0.']
-    if len(chars) != 81: print(grid, chars, len(chars))
+    if len(chars) != 81:
+        print(grid, chars, len(chars))
     assert len(chars) == 81
     return dict(zip(squares, chars))
 
@@ -90,7 +91,8 @@ def display(values):
     for r in rows:
         print(''.join(values[r+c].center(width) + ('|' if c in '36' else '')
                       for c in cols))
-        if r in 'CF': print(line)
+        if r in 'CF':
+            print(line)
     print()
 
 # Search
@@ -107,7 +109,8 @@ def search(values):
     n,s = min((len(values[s]), s) for s in squares if len(values[s]) > 1)
     for d in values[s]:
         result = search(assign(values.copy(), s, d))
-        if result: return result
+        if result:
+            return result
 
 # Tests
 def solve_all(grids, name=''):
