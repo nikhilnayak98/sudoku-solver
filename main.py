@@ -1,3 +1,5 @@
+import time
+
 def cross(A, B):
     # Cross product of elements in A and elements in B.
     return [a+b for a in A for b in B]
@@ -106,3 +108,33 @@ def search(values):
     for d in values[s]:
         result = search(assign(values.copy(), s, d))
         if result: return result
+
+# Tests
+def solve_all(grids, name=''):
+    # Attempt to solve a sequence of grids. Report results.
+    times, results = zip(*[time_solve(grid) for grid in grids])
+    N = len(results)
+    if N > 1:
+        print('Solved %d of %d %s puzzles (avg %.2f secs (%d Hz), max %.2f secs).' % (
+            sum(results), N, name, sum(times)/N, N/sum(times), max(times)))
+
+def time_solve(grid):
+    showif = 0.0
+    start = time.clock()
+    values = solve(grid)
+    t = time.clock()-start
+    if showif is not None and t > showif:
+        display(grid_values(grid))
+        if values:
+            display(values)
+        print '(%.2f seconds)\n' % t
+    return (t, solved(values))
+
+def solved(values):
+    # A puzzle is solved if each unit is a permutation of the digits 1 to 9.
+    def unitsolved(unit):
+        return set(values[s] for s in unit) == set(digits)
+    return values is not False and all(unitsolved(unit) for unit in unitlist)
+
+if __name__ == '__main__':
+    test()
