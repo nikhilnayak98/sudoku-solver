@@ -138,3 +138,9 @@ def solved(values):
 
 if __name__ == '__main__':
     test()
+    print('Easy Dataset')
+    solve_all(open('dataset1.txt'), 'easy dataset')
+    print('Hard Dataset')
+    solve_all(open('dataset2.txt'), 'hard dataset')
+    print('Hardest Dataset')
+    solve_all(open('dataset3.txt'), 'hardest dataset')
