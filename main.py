@@ -119,15 +119,13 @@ def solve_all(grids, name=''):
             sum(results), N, name, sum(times)/N, N/sum(times), max(times)))
 
 def time_solve(grid):
-    showif = 0.0
     start = time.clock()
     values = solve(grid)
     t = time.clock()-start
-    if showif is not None and t > showif:
-        display(grid_values(grid))
-        if values:
-            display(values)
-        print('(%.2f seconds)\n' % t)
+    display(grid_values(grid))
+    if values:
+        display(values)
+    print('(%.2f seconds)\n' % t)
     return (t, solved(values))
 
 def solved(values):
