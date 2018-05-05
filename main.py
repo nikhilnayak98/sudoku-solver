@@ -127,7 +127,7 @@ def time_solve(grid):
         display(grid_values(grid))
         if values:
             display(values)
-        print '(%.2f seconds)\n' % t
+        print('(%.2f seconds)\n' % t)
     return (t, solved(values))
 
 def solved(values):
@@ -141,6 +141,6 @@ if __name__ == '__main__':
     print('Easy Dataset')
     solve_all(open('dataset1.txt'), 'easy dataset')
     print('Hard Dataset')
-    solve_all(open('dataset2.txt'), 'hard dataset')
+    solve_all(open('dataset2.txt'), 'normal dataset')
     print('Hardest Dataset')
-    solve_all(open('dataset3.txt'), 'hardest dataset')
+    solve_all(open('dataset3.txt'), 'hard dataset')
