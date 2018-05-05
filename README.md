@@ -16,4 +16,4 @@ Easy dataset : dataset1.txt
 
 Normal dataset : dataset2.txt
 
-Hard dataset : dataset3.txt
+Hard dataset : dataset3.txt (**Arto Inkala**'s puzzle)
